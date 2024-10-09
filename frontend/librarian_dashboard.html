@@ -1,0 +1,50 @@
+<!-- frontend/librarian_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Librarian Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Librarian Dashboard</h2>
+        <button id="logout-btn" class="btn btn-danger float-end">Logout</button>
+        <div class="clearfix"></div>
+        <hr>
+        <!-- Manage Books -->
+        <h3>Manage Books</h3>
+        <form id="add-book-form" class="mb-3">
+            <div class="mb-3">
+                <label for="book-title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="book-title" required>
+            </div>
+            <div class="mb-3">
+                <label for="book-author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="book-author" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Book</button>
+        </form>
+        <div id="books-list"></div>
+
+        <hr>
+        <!-- Manage Members -->
+        <h3>Manage Members</h3>
+        <form id="add-member-form" class="mb-3">
+            <div class="mb-3">
+                <label for="member-username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="member-username" required>
+            </div>
+            <div class="mb-3">
+                <label for="member-password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="member-password" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Member</button>
+        </form>
+        <div id="members-list"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

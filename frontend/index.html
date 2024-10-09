@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        .book-item, .member-item {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+    <script src="/frontend/js/app.js" defer></script>
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login-form" style="display: block;">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login(document.getElementById('login-username').value, document.getElementById('login-password').value)">Login</button>
+        <h3>Don't have an account?</h3>
+        <input type="text" id="signup-username" placeholder="Username">
+        <input type="password" id="signup-password" placeholder="Password">
+        <select id="signup-role">
+            <option value="LIBRARIAN">Librarian</option>
+            <option value="MEMBER">Member</option>
+        </select>
+        <button onclick="signup(document.getElementById('signup-username').value, document.getElementById('signup-password').value, document.getElementById('signup-role').value)">Signup</button>
+    </div>
+
+    <!-- Dashboard (Authenticated Users) -->
+    <div id="dashboard" style="display: block;">
+        <h2>Welcome to the Library Management System</h2>
+        <button onclick="logout()">Logout</button>
+
+        <!-- Books Section -->
+        <h3>Books</h3>
+        <div id="books-container"></div>
+        <input type="text" id="book-title" placeholder="Title">
+        <input type="text" id="book-author" placeholder="Author">
+        <button onclick="addBook(document.getElementById('book-title').value, document.getElementById('book-author').value)">Add Book</button>
+
+        <!-- Members Section (Librarian Only) -->
+        <h3>Members</h3>
+        <div id="members-container"></div>
+        <input type="text" id="member-username" placeholder="Username">
+        <input type="password" id="member-password" placeholder="Password">
+        <select id="member-role">
+            <option value="MEMBER">Member</option>
+            <option value="LIBRARIAN">Librarian</option>
+        </select>
+        <button onclick="addMember(document.getElementById('member-username').value, document.getElementById('member-password').value, document.getElementById('member-role').value)">Add Member</button>
+    </div>
+</body>
+</html>
+

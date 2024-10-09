@@ -1,0 +1,11 @@
+/* frontend/css/styles.css */
+
+/* Centering form containers */
+.container {
+    max-width: 600px;
+}
+
+/* Message Styling */
+#signup-message, #login-message {
+    font-weight: bold;
+}
