@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-SQLAlchemy
-asyncpg
-psycopg2
-python-jose[cryptography]
-bcrypt
-python-dotenv
-passlib
