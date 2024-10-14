@@ -5,6 +5,7 @@ from .. import schemas, crud, models
 from ..database import get_db
 from ..auth import get_current_active_librarian, get_current_active_member
 from datetime import datetime
+from typing import List
 
 router = APIRouter(
     prefix="/books",
@@ -35,7 +36,7 @@ async def delete_book(book_id: int, db: AsyncSession = Depends(get_db)):
     return db_book
 
 # View all books
-@router.get("/", response_model=list[schemas.BookResponse])
+@router.get("/", response_model=List[schemas.BookResponse])
 async def read_books(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_db)):
     books = await crud.get_books(db, skip=skip, limit=limit)
     return books
@@ -43,7 +44,7 @@ async def read_books(skip: int = 0, limit: int = 100, db: AsyncSession = Depends
 # Member Endpoints
 
 # View available books (those that are not borrowed)
-@router.get("/available", response_model=list[schemas.BookResponse], dependencies=[Depends(get_current_active_member)])
+@router.get("/available", response_model=List[schemas.BookResponse], dependencies=[Depends(get_current_active_member)])
 async def read_available_books(db: AsyncSession = Depends(get_db)):
     db_books = await db.execute(
         db.query(models.Book)
