@@ -1,5 +1,5 @@
 // Base API URL for FastAPI backend
-const API_BASE_URL = "http://localhost:8001";
+const API_BASE_URL = "https://lib-iit-0rrh.onrender.com/";
 const TOKEN_STORAGE_KEY = "auth_token";
 
 // Utility Functions to Handle Authentication Token
